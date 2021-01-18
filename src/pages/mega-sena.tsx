@@ -10,7 +10,7 @@ const MegaSenaPage: React.FC = () => {
   const getRandomArbitrary = (min, max) => {
     min = Math.ceil(min)
     max = Math.floor(max)
-    return Math.ceil(Math.random() * (max - min + 1)) + min
+    return Math.ceil(Math.random() * (max - min)) + min
   }
 
   useEffect(() => {
