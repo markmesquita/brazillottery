@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 
 const MegaSenaPage: React.FC = () => {
@@ -13,17 +13,20 @@ const MegaSenaPage: React.FC = () => {
     return Math.ceil(Math.random() * (max - min)) + min 
   }
 
-  useEffect(() => {
+  const handleGamble = (loop, min, max) =>{
     const aux = []
 
-    while (aux.length < 6) {
-      const num = getRandomArbitrary(1, 60)
+    while (aux.length < loop) {
+      const num = getRandomArbitrary(min, max)
       if (aux.indexOf(num) === -1) {
         aux.push(num)
       }
     }
-    console.log('Numbers', aux)
-    setNumbers(aux)
+    setNumbers(aux.sort((a, b) => a-b))
+  }
+
+  useEffect(() => {
+    handleGamble(6, 0, 60)
   }, [])
 
   useEffect(() => {
@@ -37,23 +40,16 @@ const MegaSenaPage: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-        >
-          <Link href="/">
-            <a className="bg-gray-900 text-gray-50 px-6 py-3 text-lg font-semibold rounded-xl hover:bg-gray-500">
-              Voltar para home
-            </a>
-          </Link>
-        </motion.div>
+        <BackButton />
         <motion.img
           src="/img/mega-sena.svg"
           className="h-24 md:h-36"
           layoutId="mega-sena-logo"
         />
-        <div className="w-full border-2 p-1 order-green-400 grid grid-cols-10 grid-rows-6 mt-24 center">
+        <div className="w-full flex justify-end">
+          <button onClick={() => handleGamble(6,0,60)} className="bg-green-500 px-5 py-3 rounded-md text-white hover:text-green-700 hover:bg-green-400 transition active:bg-blue-900">Novo jogo</button>
+        </div>
+        <div className="w-full flex border-2 p-1 border-green-400 grid grid-cols-10 gap-1 mt-10 justify-center">
           {values.map(value => (
             <Number
               key={value}
@@ -65,6 +61,7 @@ const MegaSenaPage: React.FC = () => {
             />
           ))}
         </div>
+        <div className="flex w-full flex-row justify-end">{numbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-green-500 rounded-xl">{num < 10 ? `0${num}` : num > 99 ? '00' : num }</div>)}</div>
       </div>
     </>
   )

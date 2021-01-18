@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import BackButton from '../components/BackButton'
 import Card from '../components/Card'
 
 const Home: React.FC = () => {

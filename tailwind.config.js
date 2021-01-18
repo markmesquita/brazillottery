@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif']
-      }
+      },
+      backgroundColor: ['active'],
     },
   },
   variants: {
