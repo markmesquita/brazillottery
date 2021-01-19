@@ -63,7 +63,7 @@ const LotomaniaPage: React.FC = () => {
         <div className="w-full flex justify-end mb-10">
           <div className="flex w-full md:w-2/4 flex-row justify-self-end grid grid-cols-10 gap-1 ">
             {numbers.map(num => 
-              <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-yellow-600 rounded-xl">
+              <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 justify-self-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-yellow-600 rounded-xl">
                 { num < 10 ? `0${num}` : num === 100 ? '00' : num }
                 </div>)}
               </div>

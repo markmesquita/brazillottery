@@ -60,7 +60,9 @@ const LotofacilPage: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex w-full flex-row justify-end">{numbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-purple-600 rounded-xl">{ num < 10 ? `0${num}` : num > 99 ? '00' : num }</div>)}</div>
+        <div className="w-full flex justify-end mb-10">
+          <div className="flex w-full md:w-1/4  grid grid-cols-5 gap-1 ">{numbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 justify-self-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-purple-600 rounded-xl">{ num < 10 ? `0${num}` : num > 99 ? '00' : num }</div>)}</div>
+        </div>
     </div>
   )
 }
