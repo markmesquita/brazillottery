@@ -2,19 +2,20 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
+import type { RandomFunction, GambleFunction } from '../types/lottery'
 
 const MegaSenaPage: React.FC = () => {
-  const [values, setValues] = useState([])
-  const [numbers, setNumbers] = useState([])
+  const [values, setValues] = useState<number[]>([])
+  const [numbers, setNumbers] = useState<number[]>([])
 
-  const getRandomArbitrary = (min, max) => {
+  const getRandomArbitrary: RandomFunction = (min, max) => {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.ceil(Math.random() * (max - min)) + min 
   }
 
-  const handleGamble = (loop, min, max) =>{
-    const aux = []
+  const handleGamble: GambleFunction = (loop, min, max) => {
+    const aux: number[] = []
 
     while (aux.length < loop) {
       const num = getRandomArbitrary(min, max)
