@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
+import { GambleFunction } from '@/types/lottery'
 
 const MilionariaPage: React.FC = () => {
   const [values, setValues] = useState<number[]>([])
@@ -15,7 +16,7 @@ const MilionariaPage: React.FC = () => {
     return Math.ceil(Math.random() * (max - min)) + min 
   }
 
-  const handleGamble = (loop: number, min: number, max: number): void =>{
+  const handleGamble: GambleFunction = (loop, min, max) =>{
     const aux = []
     const aux2 = []
     while (aux.length < loop) {
