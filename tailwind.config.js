@@ -1,16 +1,17 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./src/pages/**/*.tsx', './src/components/**/*.tsx'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif']
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
       },
       backgroundColor: ['active'],
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

@@ -7,14 +7,20 @@ interface CardsProps {
   layoutId: string
 }
 
-const Card: React.FC<CardsProps> = ({ href, imgSrc, layoutId }) => {
+const Card = ({ href, imgSrc, layoutId }: CardsProps) => {
   return (
     <Link href={href}>
-      <div className="relative h-20 px-4 md:h-40 bg-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition ">
+      <div className="relative h-20 px-4 md:h-40 bg-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition">
         <motion.img
           src={imgSrc}
           className="w-full h-full"
+          layout
           layoutId={layoutId}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 30
+          }}
         />
       </div>
     </Link>

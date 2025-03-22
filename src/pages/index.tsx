@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       <Head>
         <title>Brazil Lottery</title>
       </Head>
-      <div>
+      <div className='m-10'>
         <h1 className="text-2xl text-center sm:text-4xl lm:text-6xl mt-10 md:mt-24 leading-none font-extrabold tracking-tight text-gray-900">
           Gere jogos com números aleatórios de maneira rápida
         </h1>
@@ -37,6 +37,11 @@ const Home: React.FC = () => {
             layoutId={'dupla-sena-logo'}
             imgSrc={'/img/dupla-sena.svg'}
             href={'/dupla-sena'}
+          />
+          <Card
+            layoutId={'milionaria-logo'}
+            imgSrc={'/img/milionaria.svg'}
+            href={'/milionaria'}
           />
         </div>
       </div>

@@ -4,18 +4,18 @@ import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 
 const MilionariaPage: React.FC = () => {
-  const [values, setValues] = useState([])
-  const [numbers, setNumbers] = useState([])
-  const [clovers, setClovers] = useState([])
-  const [cloverNumbers, setCloverNumbers] = useState([])
+  const [values, setValues] = useState<number[]>([])
+  const [numbers, setNumbers] = useState<number[]>([])
+  const [clovers, setClovers] = useState<number[]>([])
+  const [cloverNumbers, setCloverNumbers] = useState<number[]>([])
 
-  const getRandomArbitrary = (min, max) => {
+  const getRandomArbitrary = (min: number, max: number): number => {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.ceil(Math.random() * (max - min)) + min 
   }
 
-  const handleGamble = (loop, min, max) =>{
+  const handleGamble = (loop: number, min: number, max: number): void =>{
     const aux = []
     const aux2 = []
     while (aux.length < loop) {
@@ -79,13 +79,13 @@ const MilionariaPage: React.FC = () => {
         </div>
         <div className="flex w-full flex-row justify-end">{numbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-blue-500 rounded-xl">{num < 10 ? `0${num}` : num > 99 ? '00' : num }</div>)}</div>
         <div className="flex w-full flex-row justify-center text-xl mt-10">Trevos</div>
-        <div className="w-full flex border-2 p-1 border-blue-800 grid grid-cols-6 gap-1 mt-10 justify-center">
+        <div className="w-full flex border-2 p-1 border-yellow-800 grid grid-cols-6 gap-1 mt-10 justify-center">
           {clovers.map(value => (
             <Number
               key={value}
               num={value}
               color={
-                cloverNumbers.indexOf(value) > -1 ? 'bg-blue-500' : 'bg-gray-200'
+                cloverNumbers.indexOf(value) > -1 ? 'bg-yellow-500' : 'bg-gray-200'
               }
               textColor={cloverNumbers.indexOf(value) > -1 ? 'text-white' : ''}
             />
