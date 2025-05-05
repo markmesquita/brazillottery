@@ -44,7 +44,7 @@ const MilionariaPage: React.FC = () => {
   useEffect(() => {
     const items = []
     const items2 = []
-    for (let index = 1; index <= 60; index++) {
+    for (let index = 1; index <= 50; index++) {
       items.push(index)
     }
     for (let index = 1; index <= 6; index++) {
