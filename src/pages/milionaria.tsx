@@ -64,7 +64,7 @@ const MilionariaPage: React.FC = () => {
           layoutId="milionaria-logo"
         />
         <div className="w-full flex justify-end">
-          <button onClick={() => handleGamble(6,0,60)} className="bg-blue-500 px-5 py-3 rounded-md text-white hover:text-blue-700 hover:bg-blue-400 transition active:bg-blue-900">Novo jogo</button>
+          <button onClick={() => handleGamble(6,0,50)} className="bg-blue-500 px-5 py-3 rounded-md text-white hover:text-blue-700 hover:bg-blue-400 transition active:bg-blue-900">Novo jogo</button>
         </div>
         <div className="w-full flex border-2 p-1 border-blue-800 grid grid-cols-10 gap-1 mt-10 justify-center">
           {values.map(value => (
