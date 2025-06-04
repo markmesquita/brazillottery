@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         <title>Brazil Lottery</title>
       </Head>
       <div className='m-10'>
-        <h1 className="text-2xl text-center sm:text-4xl lm:text-6xl mt-10 md:mt-24 leading-none font-extrabold tracking-tight text-gray-900">
+        <h1 className="text-2xl text-center sm:text-4xl lg:text-6xl mt-10 md:mt-24 leading-none font-extrabold tracking-tight text-gray-900">
           Gere jogos com números aleatórios de maneira rápida
         </h1>
         <div className="grid w-full grid-cols-1 grid-rows-5 mt-10 md:mt-24 gap-4 md:grid-cols-5 md:grid-rows-1">
