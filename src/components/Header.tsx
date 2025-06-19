@@ -18,6 +18,8 @@ const Header: React.FC = () => {
         </Link>
         <Link href="/milionaria" className="tracking-wide hover:text-gray-300">+Milionária
         </Link>
+        <Link href="/politica-privacidade" className="tracking-wide hover:text-gray-300 text-sm">Privacidade
+        </Link>
       </nav>
     </header>
   )
