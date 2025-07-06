@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { APP_VERSION } from '../config/version'
 
 const Footer: React.FC = () => {
   return (
@@ -11,6 +12,9 @@ const Footer: React.FC = () => {
             </p>
             <p className="text-xs text-gray-400 mt-1">
               Gerador de jogos para loterias da Caixa Econômica Federal
+            </p>
+            <p className="text-xs text-gray-500 mt-1">
+              Versão {APP_VERSION}
             </p>
           </div>
 

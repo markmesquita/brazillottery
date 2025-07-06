@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
+import NumberSelector from '../components/NumberSelector'
 import { GambleFunction } from '@/types/lottery'
 
 const MilionariaPage: React.FC = () => {
@@ -9,25 +10,27 @@ const MilionariaPage: React.FC = () => {
   const [numbers, setNumbers] = useState<number[]>([])
   const [clovers, setClovers] = useState<number[]>([])
   const [cloverNumbers, setCloverNumbers] = useState<number[]>([])
+  const [selectedNumbers, setSelectedNumbers] = useState<number>(6)
+  const [selectedClovers, setSelectedClovers] = useState<number>(2)
 
   const getRandomArbitrary = (min: number, max: number): number => {
     min = Math.ceil(min)
     max = Math.floor(max)
-    return Math.ceil(Math.random() * (max - min)) + min 
+    return Math.ceil(Math.random() * (max - min)) + min
   }
 
-  const handleGamble: GambleFunction = (loop, min, max) =>{
+  const handleGamble: GambleFunction = (loop, min, max) => {
     const aux = []
     const aux2 = []
-    while (aux.length < loop) {
+    while (aux.length < selectedNumbers) {
       const num = getRandomArbitrary(min, max)
       if (aux.indexOf(num) === -1) {
         aux.push(num)
       }
     }
-    setNumbers(aux.sort((a, b) => a-b))
+    setNumbers(aux.sort((a, b) => a - b))
 
-    while (aux2.length < 2) {
+    while (aux2.length < selectedClovers) {
       const num = getRandomArbitrary(1, 6)
       if (aux2.indexOf(num) === -1) {
         aux2.push(num)
@@ -38,8 +41,8 @@ const MilionariaPage: React.FC = () => {
   }
 
   useEffect(() => {
-    handleGamble(6, 0, 50)
-  }, [])
+    handleGamble(selectedNumbers, 0, 50)
+  }, [selectedNumbers, selectedClovers])
 
   useEffect(() => {
     const items = []
@@ -63,8 +66,29 @@ const MilionariaPage: React.FC = () => {
           className="h-24 md:h-36"
           layoutId="milionaria-logo"
         />
-        <div className="w-full flex justify-end">
-          <button onClick={() => handleGamble(6,0,50)} className="bg-blue-500 px-5 py-3 rounded-md text-white hover:text-blue-700 hover:bg-blue-400 transition active:bg-blue-900">Novo jogo</button>
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
+          <div className="flex flex-col md:flex-row gap-4">
+            <NumberSelector
+              minNumbers={6}
+              maxNumbers={12}
+              selectedNumbers={selectedNumbers}
+              onNumberChange={setSelectedNumbers}
+              label="Números principais:"
+            />
+            <NumberSelector
+              minNumbers={2}
+              maxNumbers={5}
+              selectedNumbers={selectedClovers}
+              onNumberChange={setSelectedClovers}
+              label="Trevos:"
+            />
+          </div>
+          <button
+            onClick={() => handleGamble(selectedNumbers, 0, 50)}
+            className="bg-blue-500 px-5 py-3 rounded-md text-white hover:text-blue-700 hover:bg-blue-400 transition active:bg-blue-900"
+          >
+            Novo jogo
+          </button>
         </div>
         <div className="w-full flex border-2 p-1 border-blue-800 grid grid-cols-10 gap-1 mt-10 justify-center">
           {values.map(value => (
@@ -78,7 +102,13 @@ const MilionariaPage: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex w-full flex-row justify-end">{numbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-blue-500 rounded-xl">{num < 10 ? `0${num}` : num > 99 ? '00' : num }</div>)}</div>
+        <div className="flex w-full flex-row justify-end flex-wrap gap-1 mt-4">
+          {numbers.map(num => (
+            <div key={num} className="h-6 w-8 pl-2 pr-2 text-center text-white bg-blue-500 rounded-xl flex items-center justify-center text-sm">
+              {num < 10 ? `0${num}` : num > 99 ? '00' : num}
+            </div>
+          ))}
+        </div>
         <div className="flex w-full flex-row justify-center text-xl mt-10">Trevos</div>
         <div className="w-full flex border-2 p-1 border-yellow-800 grid grid-cols-6 gap-1 mt-10 justify-center">
           {clovers.map(value => (
@@ -92,7 +122,13 @@ const MilionariaPage: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex w-full flex-row justify-end">{cloverNumbers.map(num => <div key={num} className="m-1 h-6 w-8 pl-2 pr-2 text-center m-1 h-6 w-8 pl-2 pr-2 text-center text-white bg-yellow-500 rounded-xl">{ `0${num}`}</div>)}</div>
+        <div className="flex w-full flex-row justify-end flex-wrap gap-1 mt-4">
+          {cloverNumbers.map(num => (
+            <div key={num} className="h-6 w-8 pl-2 pr-2 text-center text-white bg-yellow-500 rounded-xl flex items-center justify-center text-sm">
+              {`0${num}`}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
