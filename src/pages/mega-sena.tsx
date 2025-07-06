@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 import NumberSelector from '../components/NumberSelector'
+import CustomHead from '../components/CustomHead'
 import type { RandomFunction, GambleFunction } from '../types/lottery'
 
 const MegaSenaPage: React.FC = () => {
@@ -42,6 +43,10 @@ const MegaSenaPage: React.FC = () => {
 
   return (
     <>
+      <CustomHead
+        title="Mega-Sena - Brazil Lottery"
+        description="Gere jogos da Mega-Sena com 6 a 20 números. Gerador de números aleatórios para a maior loteria do Brasil."
+      />
       <div className="flex flex-col items-center">
         <BackButton />
         <motion.img

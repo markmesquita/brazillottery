@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 import NumberSelector from '../components/NumberSelector'
+import CustomHead from '../components/CustomHead'
 import { GambleFunction } from '@/types/lottery'
 
 const MilionariaPage: React.FC = () => {
@@ -59,6 +60,10 @@ const MilionariaPage: React.FC = () => {
 
   return (
     <>
+      <CustomHead
+        title="+Milionária - Brazil Lottery"
+        description="Gere jogos da +Milionária com 6 a 12 números + 2 a 5 trevos. A loteria com os maiores prêmios do Brasil."
+      />
       <div className="flex flex-col items-center">
         <BackButton />
         <motion.img

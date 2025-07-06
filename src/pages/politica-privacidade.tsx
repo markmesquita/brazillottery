@@ -1,13 +1,13 @@
-import Head from 'next/head'
+import CustomHead from '../components/CustomHead'
 import BackButton from '../components/BackButton'
 
 const PoliticaPrivacidade: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Política de Privacidade - Brazil Lottery</title>
-        <meta name="description" content="Política de Privacidade do Brazil Lottery - Gerador de jogos para loterias da Caixa Econômica Federal" />
-      </Head>
+      <CustomHead
+        title="Política de Privacidade - Brazil Lottery"
+        description="Política de Privacidade do Brazil Lottery - Gerador de jogos para loterias da Caixa Econômica Federal"
+      />
 
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

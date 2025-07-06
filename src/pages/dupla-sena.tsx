@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 import NumberSelector from '../components/NumberSelector'
+import CustomHead from '../components/CustomHead'
 import type { RandomFunction, GambleFunction } from '../types/lottery'
 
 const DuplaSenaPage: React.FC = () => {
@@ -52,6 +53,10 @@ const DuplaSenaPage: React.FC = () => {
 
   return (
     <>
+      <CustomHead
+        title="Dupla-Sena - Brazil Lottery"
+        description="Gere jogos da Dupla-Sena com 6 a 15 números. Loteria com dois sorteios e mais chances de ganhar."
+      />
       <div className="flex flex-col items-center">
         <BackButton />
         <motion.img

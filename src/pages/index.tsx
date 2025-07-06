@@ -1,12 +1,10 @@
-import Head from 'next/head'
+import CustomHead from '../components/CustomHead'
 import Card from '../components/Card'
 
 const Home: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Brazil Lottery</title>
-      </Head>
+      <CustomHead />
       <div className='m-10'>
         <h1 className="text-2xl text-center sm:text-4xl lg:text-6xl mt-10 md:mt-24 leading-none font-extrabold tracking-tight text-gray-900">
           Gere jogos com números aleatórios de maneira rápida

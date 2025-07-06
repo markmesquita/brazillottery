@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import BackButton from '../components/BackButton'
 import Number from '../components/Number'
 import NumberSelector from '../components/NumberSelector'
+import CustomHead from '../components/CustomHead'
 import type { RandomFunction, GambleFunction } from '../types/lottery'
 
 const QuinaPage: React.FC = () => {
@@ -42,6 +43,10 @@ const QuinaPage: React.FC = () => {
 
   return (
     <>
+      <CustomHead
+        title="Quina - Brazil Lottery"
+        description="Gere jogos da Quina com 5 a 15 números. Loteria com grandes prêmios e muitas chances de ganhar."
+      />
       <div className="flex flex-col items-center">
         <BackButton />
         <motion.img
